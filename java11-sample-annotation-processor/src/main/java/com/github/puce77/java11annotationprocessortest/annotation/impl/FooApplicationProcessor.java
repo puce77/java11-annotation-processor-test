@@ -47,10 +47,10 @@ public class FooApplicationProcessor extends AbstractProcessor {
         Filer filer = processingEnv.getFiler();
         Messager messager = processingEnv.getMessager();
         try {
-            FileObject fo = filer.createResource(StandardLocation.SOURCE_OUTPUT, "", "foo.txt",
+            FileObject fooFileObject = filer.createResource(StandardLocation.CLASS_OUTPUT, "", "foo.txt",
                     elements.toArray(new Element[0]));
 
-            try (Writer writer = fo.openWriter()) {
+            try (Writer writer = fooFileObject.openWriter()) {
                 for (String bar : bars) {
                     writer.append(bar).append("\n");
                 }
