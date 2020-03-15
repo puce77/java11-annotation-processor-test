@@ -47,7 +47,8 @@ public class FooApplicationProcessor extends AbstractProcessor {
         Filer filer = processingEnv.getFiler();
         Messager messager = processingEnv.getMessager();
         try {
-            FileObject fooFileObject = filer.createResource(StandardLocation.CLASS_OUTPUT, "", "foo.txt",
+            FileObject fooFileObject = filer.createResource(StandardLocation.CLASS_OUTPUT,
+                    "com.github.puce77.java11annotationprocessortest.sample/com.github.puce77.java11annotationprocessortest.sample", "foo.txt",
                     elements.toArray(new Element[0]));
 
             try (Writer writer = fooFileObject.openWriter()) {
