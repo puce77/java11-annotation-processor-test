@@ -21,7 +21,7 @@ Contributor(s): .
         <artifactId>java11-annotation-processor-test</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>java11-sample-lib</artifactId>
+    <artifactId>java11-sample-module-lib</artifactId>
     <packaging>jar</packaging>
 
     <name>Java 11 - Sample Lib</name>
@@ -49,14 +49,29 @@ Contributor(s): .
 
 
     <dependencies>
-      
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>java11-sample-annotation-processor</artifactId>
             <version>${project.version}</version>
         </dependency>
 
-   
-
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>java11-sample-annotation-processor</artifactId>
+                            <version>${project.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

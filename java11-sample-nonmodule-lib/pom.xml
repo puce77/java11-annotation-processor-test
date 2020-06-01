@@ -15,32 +15,29 @@ Contributor(s): .
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.softsmithy</groupId>
-        <artifactId>softsmithy-parent</artifactId>
-        <version>4.0</version>
-        <relativePath />
-    </parent>
-    <groupId>com.github.puce77.java11annotationprocessortest</groupId>
-    <artifactId>java11-annotation-processor-test</artifactId>
-    <version>0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    
-    <name>Java 11 -annotation-processor-test</name>
-    <inceptionYear>2020</inceptionYear>
 
-        
+    <parent>
+        <groupId>com.github.puce77.java11annotationprocessortest</groupId>
+        <artifactId>java11-annotation-processor-test</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>java11-sample-nonmodule-lib</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Java 11 - Sample non-module Lib</name>
+    <inceptionYear>2020</inceptionYear>
+    
     <scm>
         <connection>${scm.connection}</connection>
         <developerConnection>${scm.developerConnection}</developerConnection>
         <url>${scm.url}</url>
         <tag>HEAD</tag>
     </scm>
-  
+    
     <distributionManagement>
         <site>
             <id>github</id>
-            <url>${distributionManagement.parent.url}/</url>
+            <url>${distributionManagement.parent.url}/${project.artifactId}/</url>
         </site>
     </distributionManagement>
 
@@ -49,14 +46,17 @@ Contributor(s): .
         <scm.developerConnection>${scm.parent.developerConnection}</scm.developerConnection>
         <scm.url>${scm.parent.url}</scm.url>
     </properties>
-    
 
-    
-    <modules>
-        <module>java11-sample-annotation-processor</module>
-        <module>java11-sample-module-lib</module>
-        <module>java11-sample-nonmodule-lib</module>
-    </modules>
-  
-  
+
+    <dependencies>
+      
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>java11-sample-annotation-processor</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+   
+
+    </dependencies>
 </project>
